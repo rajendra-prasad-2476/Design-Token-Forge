@@ -2580,7 +2580,7 @@ function ghMultiCommit(files, message, _retry) {
             });
           }).then(function(newCommit) {
             return ghFetch('/repos/' + GH_OWNER + '/' + GH_REPO + '/git/refs/heads/' + GH_BRANCH, {
-              method: 'PATCH', body: { sha: newCommit.sha }
+              method: 'PATCH', body: { sha: newCommit.sha, force: true }
             });
           });
         });
